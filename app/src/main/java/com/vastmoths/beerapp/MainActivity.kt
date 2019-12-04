@@ -29,10 +29,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
+
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val navController = findNavController(R.id.nav_host_fragment)
+            navController.navigate(R.id.nav_create_beer)
         }
+
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -46,6 +49,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun onCancelCreateBeer(view: View) {
+        val navController = findNavController(R.id.nav_host_fragment)
+        navController.navigate(R.id.nav_home)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
