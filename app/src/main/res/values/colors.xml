@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    https://paletton.com/#uid=73y220kkBkqaKuEg2p9plfQuPaz -->
     <color name="colorPrimary">#2a4d69</color>
     <color name="colorPrimaryDark">#4b86b4</color>
     <color name="colorAccent">#adcbe3</color>
+    <color name="colorYes">#93CC87</color>
+    <color name="colorNo">#EC9DA4</color>
+
 </resources>

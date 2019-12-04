@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
     <LinearLayout
-        android:layout_width="261dp"
-        android:layout_height="157dp"
+        android:layout_width="278dp"
+        android:layout_height="111dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,29 +36,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="End drinking" />
-    </LinearLayout>
+    </LinearLayout><![CDATA[
 
         app:layout_constraintTop_toTopOf="parent" />
 
+    ]]>
+
     <Button
         android:id="@+id/end_drinking_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="endDrinkingOnClick"
         android:text="End Drinking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="endDrinkingOnClick"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/take_a_beer_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:onClick="takeABeerOnClick"
         android:text="Take a Beer"
         app:layout_constraintBottom_toTopOf="@+id/end_drinking_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="takeABeerOnClick"/>
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
