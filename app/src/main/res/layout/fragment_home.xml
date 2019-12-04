@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
     <LinearLayout
-        android:layout_width="261dp"
-        android:layout_height="157dp"
+        android:layout_width="278dp"
+        android:layout_height="111dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
