@@ -18,11 +18,10 @@ public class BeerCountTask extends AsyncTask {
         int timeCount = 0;
         while (true) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            timeCount += 1;
 
             if(false)
                 break;

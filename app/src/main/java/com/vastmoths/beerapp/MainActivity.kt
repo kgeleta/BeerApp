@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT).show()
         }else{
             serviceTask!!.cancel(true)
+            serviceTask = null
             Toast.makeText(applicationContext,
                 "You are drunk",
                 Toast.LENGTH_SHORT).show()
@@ -74,15 +75,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun takeABeerOnClick(view: View) {
-        val text = "Let's drink!"
-        val duration = Toast.LENGTH_SHORT
-
-        val toast = Toast.makeText(applicationContext, text, duration)
-        toast.show()
         if (serviceTask == null || serviceTask!!.isCancelled){
             serviceTask = BeerCountTask(applicationContext)
             serviceTask!!.execute()
         }
-
+        Toast.makeText(applicationContext,
+            "Take another beer",
+            Toast.LENGTH_SHORT).show()
     }
 }
