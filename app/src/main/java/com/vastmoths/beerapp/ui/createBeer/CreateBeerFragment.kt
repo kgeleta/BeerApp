@@ -1,4 +1,4 @@
-package com.vastmoths.beerapp.ui.gallery
+package com.vastmoths.beerapp.ui.createBeer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vastmoths.beerapp.R
 
-class GalleryFragment : Fragment() {
+class CreateBeerFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var createBeerViewModel: CreateBeerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-            ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(this, Observer {
+        createBeerViewModel =
+            ViewModelProviders.of(this).get(CreateBeerViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_create_beer, container, false)
+        val textView: TextView = root.findViewById(R.id.text_create_beer)
+        createBeerViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
