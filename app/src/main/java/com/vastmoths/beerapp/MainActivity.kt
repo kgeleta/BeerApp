@@ -19,7 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.vastmoths.beerapp.asynctask.BeerCountTask
-import com.vastmoths.beerapp.broadcast.AirplainModeReceiver
+import com.vastmoths.beerapp.broadcast.AirplaneModeReceiver
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Register broadcast receiver
-        val br: BroadcastReceiver = AirplainModeReceiver()
+        val br: BroadcastReceiver = AirplaneModeReceiver()
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }
