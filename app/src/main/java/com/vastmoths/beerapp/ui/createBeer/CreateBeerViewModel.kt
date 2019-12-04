@@ -1,13 +1,13 @@
-package com.vastmoths.beerapp.ui.gallery
+package com.vastmoths.beerapp.ui.createBeer
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class CreateBeerViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "Here you will create beer"
     }
     val text: LiveData<String> = _text
 }
