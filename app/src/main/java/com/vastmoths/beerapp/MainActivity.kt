@@ -61,6 +61,18 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.nav_list_beer) {
+                fab.show()
+            } else if (destination.id == R.id.nav_create_beer) {
+                fab.hide()
+            } else if (destination.id == R.id.nav_home) {
+                fab.show()
+            } else {
+                fab.hide()
+            }
+        }
     }
 
     fun onCancelCreateBeer(view: View) {
