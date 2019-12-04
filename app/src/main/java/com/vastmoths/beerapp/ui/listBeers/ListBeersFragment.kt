@@ -22,10 +22,10 @@ class ListBeersFragment : Fragment() {
         listBeersViewModel =
             ViewModelProviders.of(this).get(ListBeersViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_list_beer, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        listBeersViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_slideshow)
+//        listBeersViewModel.text.observe(this, Observer {
+//            textView.text = it
+//        })
         return root
     }
 }
