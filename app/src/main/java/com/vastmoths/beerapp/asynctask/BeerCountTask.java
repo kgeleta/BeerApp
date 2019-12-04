@@ -16,15 +16,13 @@ public class BeerCountTask extends AsyncTask {
         publishProgress(1);
 
         int timeCount = 0;
-        while (true) {
+        while (timeCount < 100) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            if(false)
-                break;
+            timeCount += 1;
         }
 
         return 1;
