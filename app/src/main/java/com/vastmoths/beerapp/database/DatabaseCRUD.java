@@ -44,7 +44,7 @@ public class DatabaseCRUD {
         return beer;
     }
 
-    public List<Beer> getAllBeers(){
+    public List<Beer> getGetAllBeers(){
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
 
@@ -77,5 +77,58 @@ public class DatabaseCRUD {
         }
 
         return Collections.emptyList();
+    }
+
+    public Beer getBeerByName(String searchName){
+
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+
+        Cursor cursor = null;
+        Beer beer = null;
+        try {
+
+            cursor = sqLiteDatabase.query(DatabaseConstants.TABLE, null,
+                    DatabaseConstants.COLUMN_NAME + " = ? ", new String[]{String.valueOf(searchName)},
+                    null, null, null);
+
+            if(cursor.moveToFirst()){
+                int id = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.COLUMN_ID));
+                String name = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_NAME));
+                int rate = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.COLUMN_RATE));
+                String type = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_TYPE));
+                String picturePath = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_PICTURE_PATH));
+
+                beer = new Beer(id, name, rate, type, picturePath);
+            }
+        } catch (Exception e){
+            System.out.println(this.getClass().getName() + ": " + e.getMessage());
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+
+        return beer;
+    }
+
+    public boolean deleteBeerById(int id) {
+
+        long deletedRowCount = -1;
+
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+
+        try {
+            deletedRowCount = sqLiteDatabase.delete(DatabaseConstants.TABLE,
+                    DatabaseConstants.COLUMN_ID + " = ? ",
+                    new String[]{ String.valueOf(id)});
+        } catch (SQLiteException e){
+            System.out.println(this.getClass().getName() + ": " + e.getMessage());
+        } finally {
+            sqLiteDatabase.close();
+        }
+
+        return deletedRowCount > 0;
     }
 }
