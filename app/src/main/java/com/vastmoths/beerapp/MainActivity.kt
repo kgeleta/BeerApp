@@ -20,7 +20,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import com.vastmoths.beerapp.asynctask.BeerCountTask
-import com.vastmoths.beerapp.broadcast.AirplainModeReceiver
+import com.vastmoths.beerapp.broadcast.AirplaneModeReceiver
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Register broadcast receiver
-        val br: BroadcastReceiver = AirplainModeReceiver()
+        val br: BroadcastReceiver = AirplaneModeReceiver()
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }
