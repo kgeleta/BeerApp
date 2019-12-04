@@ -1,30 +1,45 @@
 package com.vastmoths.beerapp.asynctask;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 public class BeerCountTask extends AsyncTask {
-    static int beerCounter = 0;
+    private Context context;
 
-    @Override
-    protected Object doInBackground(Object[] objects) {
-//        Context context = Context.getApplicationContext();
-//        CharSequence text = "Hello toast!";
-//        int duration = Toast.LENGTH_SHORT;
-//
-//        Toast toast = Toast.makeText(context, text, duration);
-//        toast.show();
-        System.out.println("Servis");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Servis po 5 sec");
-
-        return getBeerCounter();
+    public BeerCountTask(Context context) {
+        this.context = context;
     }
 
-    public static String getBeerCounter(){
-        return Integer.toString(beerCounter);
+    @Override
+    protected Integer doInBackground(Object... objects) {
+        publishProgress(1);
+
+        int timeCount = 0;
+        while (true) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            timeCount += 1;
+
+            if(false)
+                break;
+        }
+
+        return 1;
+    }
+
+    @Override
+    protected void onProgressUpdate(Object[] values) {
+        super.onProgressUpdate(values);
+        Toast.makeText(context,"Drinking starts!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onPostExecute(Object o) {
+        super.onPostExecute(o);
+        Toast.makeText(context,"Drinking ended.", Toast.LENGTH_LONG).show();
     }
 }

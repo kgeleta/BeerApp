@@ -1,5 +1,6 @@
 package com.vastmoths.beerapp
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -14,13 +15,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import com.vastmoths.beerapp.asynctask.BeerCountTask
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
+    var serviceTask: BeerCountTask? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +61,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun endDrinkingOnClick(view: View) {
-        val text = "You are drunk!!!1!!1111!"
-        val duration = Toast.LENGTH_SHORT
-
-        val toast = Toast.makeText(applicationContext, text, duration)
-        toast.show()
-        val serviceTask = BeerCountTask()
-        val str = serviceTask.execute("test")
-
-        val toast1 = Toast.makeText(applicationContext, "text", duration)
-        toast1.show()
+        if(serviceTask == null || serviceTask!!.isCancelled){
+            Toast.makeText(applicationContext,
+                "You cannot stop drinking if you did not even started!",
+                Toast.LENGTH_SHORT).show()
+        }else{
+            serviceTask!!.cancel(true)
+            Toast.makeText(applicationContext,
+                "You are drunk",
+                Toast.LENGTH_SHORT).show()
+        }
     }
+
     fun takeABeerOnClick(view: View) {
         val text = "Let's drink!"
         val duration = Toast.LENGTH_SHORT
 
         val toast = Toast.makeText(applicationContext, text, duration)
         toast.show()
+        if (serviceTask == null || serviceTask!!.isCancelled){
+            serviceTask = BeerCountTask(applicationContext)
+            serviceTask!!.execute()
+        }
+
     }
 }
