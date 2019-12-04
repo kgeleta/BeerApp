@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "BeerAppDatabase";
+    private static final String DATABASE_NAME = DatabaseConstants.DATABASE;
     private static DatabaseHelper instance = null;
 
     public static synchronized DatabaseHelper getInstance(Context context){
@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String tableCreation = "CREATE TABLE IF NOT EXISTS beer (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, rate INTEGER, type TEXT, picturePath TEXT);";
+        String tableCreation = "CREATE TABLE IF NOT EXISTS " + DatabaseConstants.TABLE + " (" + DatabaseConstants.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DatabaseConstants.COLUMN_NAME + " TEXT, " + DatabaseConstants.COLUMN_RATE + " INTEGER," + DatabaseConstants.COLUMN_TYPE + " TEXT, " + DatabaseConstants.COLUMN_PICTURE_PATH + " TEXT);";
         db.execSQL(tableCreation);
         System.out.println("created database!");
     }
