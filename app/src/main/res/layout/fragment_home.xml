@@ -29,36 +29,17 @@
             android:id="@+id/takeBeerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Take a beer" />
+            android:text="Take a beer"
+            android:onClick="takeABeerOnClick"/>
 
         <Button
             android:id="@+id/stopDrinkingButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="End drinking" />
+            android:text="End drinking"
+            android:onClick="endDrinkingOnClick"/>
     </LinearLayout>
 
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/end_drinking_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="End Drinking"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="endDrinkingOnClick"/>
-
-    <Button
-        android:id="@+id/take_a_beer_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Take a Beer"
-        app:layout_constraintBottom_toTopOf="@+id/end_drinking_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="takeABeerOnClick"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

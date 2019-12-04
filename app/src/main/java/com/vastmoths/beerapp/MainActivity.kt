@@ -65,7 +65,11 @@ class MainActivity : AppCompatActivity() {
 
         val toast = Toast.makeText(applicationContext, text, duration)
         toast.show()
-        val servisTest = BeerCountTask().execute("test")
+        val serviceTask = BeerCountTask()
+        val str = serviceTask.execute("test")
+
+        val toast1 = Toast.makeText(applicationContext, "text", duration)
+        toast1.show()
     }
     fun takeABeerOnClick(view: View) {
         val text = "Let's drink!"

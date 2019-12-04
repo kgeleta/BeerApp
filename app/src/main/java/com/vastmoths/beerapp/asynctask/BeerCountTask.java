@@ -3,6 +3,8 @@ package com.vastmoths.beerapp.asynctask;
 import android.os.AsyncTask;
 
 public class BeerCountTask extends AsyncTask {
+    static int beerCounter = 0;
+
     @Override
     protected Object doInBackground(Object[] objects) {
 //        Context context = Context.getApplicationContext();
@@ -19,7 +21,10 @@ public class BeerCountTask extends AsyncTask {
         }
         System.out.println("Servis po 5 sec");
 
+        return getBeerCounter();
+    }
 
-        return null;
+    public static String getBeerCounter(){
+        return Integer.toString(beerCounter);
     }
 }
