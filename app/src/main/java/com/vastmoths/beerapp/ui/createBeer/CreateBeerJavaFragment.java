@@ -65,7 +65,7 @@ public class CreateBeerJavaFragment extends Fragment implements View.OnClickList
         System.out.println(beerRate.getText().toString());
         System.out.println(beerType.getSelectedItem().toString());
 
-        Beer beer = new Beer(0, beerName.getText().toString(), Integer.valueOf(beerRate.getText().toString()), "type", beerComment.getText().toString());
+        Beer beer = new Beer(0, beerName.getText().toString(), Integer.valueOf(beerRate.getText().toString()), beerType.getSelectedItem().toString(), beerComment.getText().toString());
         this.databaseCRUD.insertBeer(beer);
 
         ListBeerJavaFragment nextFrag= new ListBeerJavaFragment();

@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_detail_beer"
-        android:name="com.vastmoths.beerapp.ui.detailBeer.DetailBeerFragment"
+        android:name="com.vastmoths.beerapp.ui.detailBeer.DetailBeerJavaFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_detail_beer" />
 
