@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.vastmoths.beerapp.MainActivity;
 import com.vastmoths.beerapp.R;
 import com.vastmoths.beerapp.database.DatabaseCRUD;
 import com.vastmoths.beerapp.database.model.Beer;
@@ -24,10 +25,10 @@ public class ListBeerJavaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_list_beer, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_list_beer, container, false);
         this.databaseCRUD  = new DatabaseCRUD(rootView.getContext());
 
-//        databaseCRUD.insertBeer(new Beer(0, "tyskie", 2, "jasne", "pic"));
+        databaseCRUD.insertBeer(new Beer(0, "tyskie", 2, "jasne", "pic"));
 
         try
         {
@@ -38,6 +39,17 @@ public class ListBeerJavaFragment extends Fragment {
 
                     // this is called after user click on item in list
                     System.out.println("you clicked " + listView.getItemAtPosition(position));
+
+                    String str = "you clicked " + listView.getItemAtPosition(position) + " " + position;
+
+                    MainActivity.Companion.debug(str);
+
+//                    rootView.setVisibility(View.INVISIBLE);
+//                    DetailBeerFragment fragment = new DetailBeerFragment();
+//                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.nav_host_fragment, fragment)
+//                            .commit();
                 }
             });
 

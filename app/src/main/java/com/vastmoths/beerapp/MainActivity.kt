@@ -1,6 +1,5 @@
 package com.vastmoths.beerapp
 
-import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
@@ -8,10 +7,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.Toast
-import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -24,8 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.vastmoths.beerapp.asynctask.BeerCountTask
 import com.vastmoths.beerapp.broadcast.AirplaneModeReceiver
-import com.vastmoths.beerapp.database.DatabaseCRUD
-import com.vastmoths.beerapp.database.model.Beer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -33,7 +27,11 @@ class MainActivity : AppCompatActivity() {
 //    var listView: ListView = findViewById<ListView>(R.id.beerList)
 
 //    var databaseCrud: DatabaseCRUD = DatabaseCRUD(applicationContext)
-
+    companion object {
+        fun debug(debugMessage : String) {
+            println("click " + debugMessage)
+        }
+    }
 
 
 
