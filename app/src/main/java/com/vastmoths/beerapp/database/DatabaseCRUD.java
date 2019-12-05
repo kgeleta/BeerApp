@@ -61,7 +61,7 @@ public class DatabaseCRUD {
                         String name = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_NAME));
                         int rate = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.COLUMN_RATE));
                         String type = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_TYPE));
-                        String picturePath = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_TYPE));
+                        String picturePath = cursor.getString(cursor.getColumnIndex(DatabaseConstants.COLUMN_PICTURE_PATH));
 
                         beers.add(new Beer(id, name, rate, type, picturePath));
                     }   while (cursor.moveToNext());
