@@ -23,10 +23,10 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_list_beer" />
 
-    <fragment
-        android:id="@+id/nav_detail_beer"
-        android:name="com.vastmoths.beerapp.ui.detailBeer.DetailBeerJavaFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_detail_beer" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_detail_beer"-->
+<!--        android:name="com.vastmoths.beerapp.ui.detailBeer.DetailBeerFragment"-->
+<!--        android:label="@string/menu_tools"-->
+<!--        tools:layout="@layout/fragment_detail_beer" />-->
 
 </navigation>
