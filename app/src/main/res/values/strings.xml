@@ -11,5 +11,6 @@
     <string name="menu_gallery">Create beer</string>
     <string name="menu_slideshow">List beers</string>
     <string name="menu_tools">Detail beer</string>
+    <string name="creds">Authors: Mateusz Ziomek, Mateusz Grzeliński and Krzysztof Geleta. We\'re studying computer science at AGH UST and we created this (cr)app as a project for Mobile Technologies. We had no previous experience with Android development. Now we know enough to stay away from it.</string>
 
 </resources>
