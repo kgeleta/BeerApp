@@ -1,5 +1,6 @@
 package com.vastmoths.beerapp
 
+import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
@@ -7,7 +8,10 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
+import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -20,10 +24,17 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.vastmoths.beerapp.asynctask.BeerCountTask
 import com.vastmoths.beerapp.broadcast.AirplaneModeReceiver
+import com.vastmoths.beerapp.database.DatabaseCRUD
+import com.vastmoths.beerapp.database.model.Beer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     var serviceTask: BeerCountTask? = null
+//    var listView: ListView = findViewById<ListView>(R.id.beerList)
+
+//    var databaseCrud: DatabaseCRUD = DatabaseCRUD(applicationContext)
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +46,10 @@ class MainActivity : AppCompatActivity() {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }
         registerReceiver(br, filter)
+
+//
+
+        /// ##############################################
 
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -92,17 +107,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun endDrinkingOnClick(view: View) {
-        if(serviceTask == null || serviceTask!!.isCancelled){
-            Toast.makeText(applicationContext,
-                "You cannot stop drinking if you did not even started!",
-                Toast.LENGTH_SHORT).show()
-        }else{
-            serviceTask!!.cancel(true)
-            serviceTask = null
-            Toast.makeText(applicationContext,
-                "You are drunk",
-                Toast.LENGTH_SHORT).show()
-        }
+
+//            databaseCrud.insertBeer(Beer(0, "Tyske", 2, "jasne", "dupa"))
+
+
+//        if(serviceTask == null || serviceTask!!.isCancelled){
+//            Toast.makeText(applicationContext,
+//                "You cannot stop drinking if you did not even started!",
+//                Toast.LENGTH_SHORT).show()
+//        }else{
+//            serviceTask!!.cancel(true)
+//            serviceTask = null
+//            Toast.makeText(applicationContext,
+//                "You are drunk",
+//                Toast.LENGTH_SHORT).show()
+//        }
     }
 
     fun takeABeerOnClick(view: View) {
