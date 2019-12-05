@@ -27,19 +27,15 @@ class MainActivity : AppCompatActivity() {
 //    var listView: ListView = findViewById<ListView>(R.id.beerList)
 
 //    var databaseCrud: DatabaseCRUD = DatabaseCRUD(applicationContext)
-    companion object {
-        fun debug(debugMessage : String) {
-            println("click " + debugMessage)
-        }
-    }
 
+    val br: BroadcastReceiver = AirplaneModeReceiver()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Register broadcast receiver
-        val br: BroadcastReceiver = AirplaneModeReceiver()
+//        val br: BroadcastReceiver = AirplaneModeReceiver()
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }
@@ -104,22 +100,27 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(br)
+    }
+
     fun endDrinkingOnClick(view: View) {
 
 //            databaseCrud.insertBeer(Beer(0, "Tyske", 2, "jasne", "dupa"))
 
 
-//        if(serviceTask == null || serviceTask!!.isCancelled){
-//            Toast.makeText(applicationContext,
-//                "You cannot stop drinking if you did not even started!",
-//                Toast.LENGTH_SHORT).show()
-//        }else{
-//            serviceTask!!.cancel(true)
-//            serviceTask = null
-//            Toast.makeText(applicationContext,
-//                "You are drunk",
-//                Toast.LENGTH_SHORT).show()
-//        }
+        if(serviceTask == null || serviceTask!!.isCancelled){
+            Toast.makeText(applicationContext,
+                "You cannot stop drinking if you did not even started!",
+                Toast.LENGTH_SHORT).show()
+        }else{
+            serviceTask!!.cancel(true)
+            serviceTask = null
+            Toast.makeText(applicationContext,
+                "You are drunk",
+                Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun takeABeerOnClick(view: View) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="beerType">
+        <item>Ale</item>
+        <item>Lager</item>
+        <item>Stout</item>
+        <item>Porter</item>
+        <item>Witbier</item>
+        <item>Bitter</item>
+        <item>Brown Ale</item>
+    </string-array>
+</resources>

@@ -10,7 +10,6 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.vastmoths.beerapp.MainActivity;
 import com.vastmoths.beerapp.R;
 import com.vastmoths.beerapp.database.DatabaseCRUD;
 import com.vastmoths.beerapp.database.model.Beer;
@@ -42,7 +41,7 @@ public class ListBeerJavaFragment extends Fragment {
 
                     String str = "you clicked " + listView.getItemAtPosition(position) + " " + position;
 
-                    MainActivity.Companion.debug(str);
+//                    MainActivity.Companion.debug(str);
 
 //                    rootView.setVisibility(View.INVISIBLE);
 //                    DetailBeerFragment fragment = new DetailBeerFragment();
