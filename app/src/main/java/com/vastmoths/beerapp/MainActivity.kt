@@ -3,6 +3,7 @@ package com.vastmoths.beerapp
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.Menu
@@ -30,6 +31,18 @@ class MainActivity : AppCompatActivity() {
 
     val br: BroadcastReceiver = AirplaneModeReceiver()
 
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+
+        // Checks the orientation of the screen
+        if (newConfig?.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.fragment_home_vertical);
+        } else if (newConfig?.orientation == Configuration.ORIENTATION_PORTRAIT){
+            setContentView(R.layout.fragment_home);
+
+
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
